@@ -2,7 +2,7 @@ package typical_tasks;
 
 /*142. Треугольник задан координатами своих вершин. Составить программу вычисления его площади.*/
 
-public class Task142_SquareTriangle {
+public class Task_142 {
 
     public static void main(String[] args) {
         int x1 = 2,  y1 = -3;
