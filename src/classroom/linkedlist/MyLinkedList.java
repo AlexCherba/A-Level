@@ -1,5 +1,16 @@
-package classroom.linkedlist;
+package linkedlist;
+/*
+add(E object)
+addfirst(E object)
+addlast(E object)
+removeFirst()
 
+removeLast()
+clear()
+getFirst()
+getLast()
+get(int index)
+ */
 public class MyLinkedList<E> {
     private Node<E> firstNode;
     private Node<E> lastNode;
@@ -9,6 +20,10 @@ public class MyLinkedList<E> {
         private E object;
         private Node previousNode;
         private Node nextNode;
+    }
+
+    public void add(E object) {
+        addLast(object);
     }
 
     public void addLast(E object) {
