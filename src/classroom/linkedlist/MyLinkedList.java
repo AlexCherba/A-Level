@@ -1,4 +1,4 @@
-package linkedlist;
+package classroom.linkedlist;
 
 /*
 add(E object)
@@ -9,24 +9,33 @@ removeLast()
 clear()
 getFirst()
 getLast()
-
 get(int index)
  */
 public class MyLinkedList<E> {
     private Node<E> firstNode;
     private Node<E> lastNode;
     private boolean isFirstInitialization = true;
+    private int size;
     private int index;
 
-    public int getIndex() {
-        return index;
+    public int getSize() {
+
+        return this.size;
     }
 
-    public E get() {
-        return null;
+    public E get(int index) {
+        if (index < 0 || index >= this.size) {
+            return null;
+        }
+        Node<E> node = this.firstNode;
+
+        for (int i = 0; i < index; i++) {
+            node = node.nextNode;
+        }
+        return node.object;
     }
 
-    public class Node<E> {
+    private class Node<E> {
         private E object;
         private Node previousNode;
         private Node nextNode;
@@ -45,7 +54,7 @@ public class MyLinkedList<E> {
     public void clear() {
         this.firstNode = this.lastNode = null;
         isFirstInitialization = true;
-        this.index = 0;
+        this.size = 0;
     }
 
     public void add(E object) {
@@ -62,7 +71,7 @@ public class MyLinkedList<E> {
         newLastNode.previousNode = this.lastNode;
         this.lastNode.nextNode = newLastNode;
         this.lastNode = newLastNode;
-        this.index++;
+        this.size++;
     }
 
     public void addFirst(E object) {
@@ -75,7 +84,7 @@ public class MyLinkedList<E> {
         newFirstNode.nextNode = this.firstNode;
         this.firstNode.previousNode = newFirstNode;
         this.firstNode = newFirstNode;
-        this.index++;
+        this.size++;
     }
 
     public E removeFirst() {
@@ -86,7 +95,7 @@ public class MyLinkedList<E> {
         }
         this.firstNode = this.firstNode.nextNode;
         this.firstNode.previousNode = null;
-        this.index--;
+        this.size--;
         return node.object;
     }
 
@@ -98,7 +107,7 @@ public class MyLinkedList<E> {
         }
         this.lastNode = this.lastNode.previousNode;
         this.lastNode.nextNode = null;
-        this.index--;
+        this.size--;
         return node.object;
     }
 
@@ -107,7 +116,7 @@ public class MyLinkedList<E> {
             firstNode = lastNode = new Node<>();
             lastNode.object = object;
             isFirstInitialization = false;
-            this.index++;
+            this.size++;
         }
     }
 }
