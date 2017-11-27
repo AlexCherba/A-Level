@@ -1,9 +1,10 @@
 package classroom.csv;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class ExcelTable {
-    private static ArrayList<ArrayList> arrayTable;
+    private static List<ArrayList> arrayTable;
 
     public static void addUser(String firstName, String lastName, String age){
         ArrayList<String> newUser = new ArrayList<>();
@@ -15,7 +16,7 @@ public abstract class ExcelTable {
     public static void initial(String inFile){
          arrayTable = FileUtils.read(inFile);
     }
-    public static ArrayList<ArrayList> get(){
+    public static List<ArrayList> get(){
         return arrayTable;
     }
 }

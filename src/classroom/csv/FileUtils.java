@@ -2,22 +2,29 @@ package classroom.csv;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public abstract class FileUtils {
 
-    public static ArrayList<ArrayList> read(String fileName) {
-        ArrayList<ArrayList> array = new ArrayList<>();
+    public static List<ArrayList> read(String fileName) {
+        //ArrayList<ArrayList> array = new ArrayList<>();
+        List array = new ArrayList<>();
         String cvsSplitBy = ",";
 
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
 
             String line;
             while ((line = br.readLine()) != null) {
-                ArrayList<String> splitArrayList = new ArrayList<>();
-                String[] splitArray = line.split(cvsSplitBy);
+                //ArrayList<String> splitArrayList = new ArrayList<>();
+                List splitArrayList = new ArrayList<>();
+                //String[] splitArray = line.split(cvsSplitBy);
+                splitArrayList = Arrays.asList(line.split(cvsSplitBy));
+/*
                 for (String s : splitArray) {
                     splitArrayList.add(s);
                 }
+*/
                 array.add(splitArrayList);
             }
         } catch (IOException e) {
@@ -50,13 +57,13 @@ public abstract class FileUtils {
         }
     }
 
-    public static void print(ArrayList<ArrayList> array) {
-        ArrayList<String> arrayList;
+    public static void print(List<ArrayList> array) {
+        List<String> arrayList;
 
         for (int i = 0; i < array.size(); i++) {
             arrayList = array.get(i);
             for (int j = 0; j < arrayList.size(); j++) {
-                System.out.print("("+i+":"+j+")" + arrayList.get(j) + "\t");
+                System.out.print("(" + i + ":" + j + ")" + arrayList.get(j) + "\t");
             }
             System.out.println();
         }
