@@ -38,6 +38,7 @@ public class Main {
                     System.out.println();
                     ExcelTable.addUser(firstName,lastName,age);
                     FileUtils.print(ExcelTable.get());
+                    FileUtils.write(outFile,ExcelTable.get());
                     continue;
                 case 2:
                     break;
