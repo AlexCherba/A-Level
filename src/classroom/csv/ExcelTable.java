@@ -44,8 +44,8 @@ public abstract class ExcelTable {
         oldValue.add(2, value);
         arrayStack.push(oldValue);
     }
-    public static void pollStack(){
-        ArrayList<Object> lastValue = arrayStack.poll();
+    public static void popStack(){
+        ArrayList<Object> lastValue = arrayStack.pop();
         List<String> arrayList;
         arrayList = arrayTable.get((int)lastValue.get(0));
         arrayList.set((int) lastValue.get(1), (String) lastValue.get(2));

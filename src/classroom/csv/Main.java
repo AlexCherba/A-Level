@@ -1,20 +1,16 @@
 package classroom.csv;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        String inFile = "D:\\Workspace\\Java\\IDEA\\a-level\\src\\classroom\\csv\\input.csv";
-        String outFile = "D:\\Workspace\\Java\\IDEA\\a-level\\src\\classroom\\csv\\output.csv";
+        String csvFile = "D:\\Workspace\\Java\\IDEA\\a-level\\src\\classroom\\csv\\input.csv";
         String firstName;
         String lastName;
         String age;
         String cellNumber;
 
-        ExcelTable.initial(inFile);
-        //FileUtils.print(FileUtils.read(inFile));
-        //FileUtils.print(ExcelTable.get());
+        ExcelTable.initial(csvFile);
 
         Scanner scanner01 = new Scanner(System.in);
 
@@ -23,13 +19,13 @@ public class Main {
                     "Что вы планируете делать?\n" +
                             "1. Добавить нового пользователя\n" +
                             "2. Изменить существующего пользователя\n" +
-                            "3. Выход");
+                            "3. Сохранить изменения в файл\n" +
+                            "4. Выход");
             if (!ExcelTable.isEmptyStack()) {
                 System.out.println(
-                        "4. Отмена последнего изменения\n" +
-                        "5. Сохранить изменения в файл");
+                        "-------------------------------\n" +
+                        "5. Отмена последнего изменения");
             }
-            //  View menu from select file or generate random Zoo
 
             switch (scanner01.nextInt()) {
                 case 1:
@@ -44,7 +40,6 @@ public class Main {
                     System.out.println();
                     ExcelTable.addUser(firstName, lastName, age);
                     ExcelTable.print(ExcelTable.get());
-                    FileUtils.write(outFile, ExcelTable.get());
                     continue;
                 case 2:
                     ExcelTable.print(ExcelTable.get());
@@ -61,15 +56,15 @@ public class Main {
                     ExcelTable.printStack();
                     continue;
                 case 3:
-                    break;
-                case 4:
-                    if (ExcelTable.isEmptyStack()) continue;
-                    ExcelTable.pollStack();
-                    ExcelTable.print(ExcelTable.get());
-                    ExcelTable.printStack();
+                    FileUtils.write(csvFile, ExcelTable.get());
                     continue;
+                case 4:
+                    break;
                 case 5:
                     if (ExcelTable.isEmptyStack()) continue;
+                    ExcelTable.popStack();
+                    ExcelTable.print(ExcelTable.get());
+                    ExcelTable.printStack();
                     continue;
                 default:
                     System.out.println("Не катит, 1 или 2 плиз!");
