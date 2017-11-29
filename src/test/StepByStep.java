@@ -1,3 +1,5 @@
+package test;
+
 public class StepByStep {
 
 
@@ -5,17 +7,27 @@ public class StepByStep {
         System.out.println("out method main");
 //        A objectA = new A();
 //        System.out.println();
-        B objectB = new B();
+//        B.print();
+//        B.print();
+//        System.out.println("-------");
+        B objectB1 = new B();
+        System.out.println("-------");
+        B objectB2 = new B();
     }
 }
 
 class A {
-    static { System.out.print("a1 "); }
-    { System.out.print("a2 "); }
-    A(){  System.out.print("a3 ");  };
+    static { System.out.println("a1 "); }
+    { System.out.println("a2 "); }
+    A(){  System.out.println("a3 ");  };
 }
 class B extends A {
-    static { System.out.print("b1 "); }
-    { System.out.print("b2 "); }
-    B(){ System.out.print("b3 ");  };
+    static { System.out.println("b1 "); }
+    { System.out.println("b2 "); }
+    B(){ System.out.println("b3 ");  };
+
+    static void print(){
+        System.out.println("b4 from static method");
+    }
+
 }
