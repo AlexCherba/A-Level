@@ -99,16 +99,5 @@ public abstract class FileUtils {
         return str;
     }
 
-    public static void print(List<ArrayList> array) {
-        List<String> arrayList;
-
-        for (int i = 0; i < array.size(); i++) {
-            arrayList = array.get(i);
-            for (int j = 0; j < arrayList.size(); j++) {
-                System.out.print("(" + i + ":" + j + ")" + arrayList.get(j) + "\t");
-            }
-            System.out.println();
-        }
-    }
 
 }
