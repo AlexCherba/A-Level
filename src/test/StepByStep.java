@@ -1,5 +1,9 @@
 package test;
 
+
+/*
+    Порядок инициализации объекта в Java
+*/
 public class StepByStep {
 
 
