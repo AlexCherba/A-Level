@@ -13,10 +13,10 @@ public class Race {
     private int winHorse;
 
     public Race() {
-        inicialization();
+        initialization();
     }
 
-    public void inicialization(){
+    public void initialization(){
         for (int i = 0; i < horseNameArray.length; i++) {
             horseList.add(new Horse(horseNameArray[i],i));
         }
