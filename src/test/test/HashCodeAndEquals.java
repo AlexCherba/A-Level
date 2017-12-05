@@ -28,8 +28,8 @@ class BlackBox {
         this.varB = varB;
     }
 
-    //@Override
-    public boolean equals1(Object o) {
+    @Override
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -39,8 +39,8 @@ class BlackBox {
         return varB == blackBox.varB;
     }
 
-    //@Override
-    public int hashCode1() {
+    @Override
+    public int hashCode() {
         int result = varA;
         result = 31 * result + varB;
         return result;

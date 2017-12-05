@@ -1,7 +1,11 @@
 package homework.ipodrom;
 
-public class Gamer {
+import java.util.ArrayList;
+import java.util.List;
 
+public class Gamer {
+    private static String[] gamerNameArray = {"Вася", "Петрович", "Денис", "Андрей", "Дмитрий", "Ken", "Barby"};
+    private static List<Gamer> gamerList = new ArrayList<>();
     private String name;
     private int horse;
     private int rate;
@@ -16,6 +20,17 @@ public class Gamer {
         this.name = name;
         this.horse = horse;
         this.rate = rate;
+    }
+
+    public static void initialization() {
+        for (String s : gamerNameArray) {
+            gamerList.add(new Gamer(s));
+        }
+    }
+    public static void printGamersRate(){
+        for (Gamer gamer : gamerList) {
+            System.out.println(gamer.name + " - " + gamer.rate + " бакса на " + Race.getHorseNameArray()[gamer.horse]);
+        }
     }
 
     public void setRate(int horse, int rate) {
