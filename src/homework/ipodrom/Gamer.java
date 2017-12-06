@@ -27,10 +27,26 @@ public class Gamer {
             gamerList.add(new Gamer(s));
         }
     }
-    public static void printGamersRate(){
+
+    public static void printGamersRate() {
         for (Gamer gamer : gamerList) {
-            System.out.println(gamer.name + " - " + gamer.rate + " бакса на " + Race.getHorseNameArray()[gamer.horse]);
+            System.out.println(gamer.name + " - " + gamer.rate + " грн на " + Race.getHorseNameArray()[gamer.horse - 1]);
         }
+    }
+
+    public static void printWinGamers(Race race) {
+        int sumRate = 0;
+        boolean isWinGamer = false;
+        for (Gamer gamer : gamerList) {
+            sumRate += gamer.rate;
+            if (gamer.horse == race.getWinHorse()) {
+                System.out.println("Победил " + gamer.name);
+                isWinGamer = true;
+            }
+        }
+        System.out.println(isWinGamer ?
+                "Поздравляем победителей с выигранной общей суммой " + sumRate + " грн" :
+                "Упс, вся поставленная сумма " + sumRate + " грн остается организаторам скачек");
     }
 
     public void setRate(int horse, int rate) {
