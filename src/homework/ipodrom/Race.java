@@ -57,18 +57,6 @@ public class Race implements Runnable {
         }
     }
 
-    public void incrementSum(int rate) {
-        this.sumRate += rate;
-    }
-
-    public int getSumRate() {
-        return this.sumRate;
-    }
-
-    public void setSumRate(int sumRate) {
-        this.sumRate = sumRate;
-    }
-
     public int getWinHorse() {
         return this.winHorse;
     }

@@ -48,21 +48,4 @@ public class Gamer {
                 "Поздравляем победителей с выигранной общей суммой " + sumRate + " грн" :
                 "Упс, вся поставленная сумма " + sumRate + " грн остается организаторам скачек");
     }
-
-    public void setRate(int horse, int rate) {
-        this.horse = horse;
-        this.rate = rate;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getHorse() {
-        return horse;
-    }
-
-    public int getRate() {
-        return rate;
-    }
 }
