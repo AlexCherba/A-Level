@@ -41,6 +41,11 @@ public class Race implements Runnable {
             for (Thread thread : threads) {
                 if (thread.isAlive()) endRace = false;
             }
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
